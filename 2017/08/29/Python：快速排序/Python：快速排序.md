@@ -5,7 +5,6 @@ tags: [python]
 description: 快速排序：空间复杂度为O（log n），时间复杂度为[O（nlogn）, O(n^2)]，算法不稳定，不具有适应性
 categories: Python
 keywords: Python
-pinned: true
 
 ---
 # 快速排序
