@@ -87,7 +87,7 @@
   
     <style>
       body {
-        background-color: #eeeeee;
+        background-color: #eeeee;
       }
     </style>
   
@@ -179,6 +179,10 @@
       </div>
       <div class="flex-spacer"></div>
       
+        <div class="button">
+          <button class="mdui-btn mdui-ripple mdui-text-color-white-icon" id="drawer-button"><i class="mdui-icon material-icons">&#xe5c5;</i></button>
+        </div>
+      
     </div>
   </div>
 </div>
@@ -266,6 +270,25 @@
       </div>
     
   </div>
+  
+    <div class="pages">
+      <div class="mdui-list" mdui-collapse="{accordion: true}" mdui-collapse>
+        
+          
+            <a href="http://eyhn.in/Azusa/example/" target="_blank">
+              <li class="mdui-list-item mdui-ripple">
+                
+                
+                  <i class="mdui-list-item-icon mdui-icon material-icons">&#xe0ba;</i>
+                
+                
+                <div class="mdui-list-item-content">炫酷的播放器</div>
+              </li>
+            </a>
+          
+        
+      </div>
+    </div>
   
 </div>
 
@@ -395,7 +418,7 @@
         
         
           <div class="mdui-card-media">
-            <img src="/img/random/picHD_33.png"/>
+            <img src="/img/random/picHD_35.png"/>
           </div>
         
         <div class="post-content mdui-typo no-margin" id="post-content">
@@ -424,11 +447,9 @@
               
             </span>
             <br />
-            <span>Article Permalink: <a href="http://wiggin.win/2017/08/28/hello-world/">http://wiggin.win/2017/08/28/hello-world/</a></span>
-            
-              <br />
-              <span>Article Markdown: <a href="http://wiggin.win/2017/08/28/hello-world/hello-world.md">http://wiggin.win/2017/08/28/hello-world/hello-world.md</a></span>
-            
+            <span>版权声明：<a>转载需注明出处</a></span>
+            <br />
+            <span>有任何疑问欢迎骚扰我</span>
           </div>
         
 
@@ -549,6 +570,12 @@
     })
   })();
 
+  
+    /* drawer */
+    document.querySelector('#drawer-button').addEventListener('click', function (e) {
+        this.classList.toggle('pages');
+        document.querySelector('#drawer').classList.toggle('pages');
+    })
   
 </script>
 
@@ -748,6 +775,7 @@
     </style>
     <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json")</script>
   
+
 </body>
 
 </html>

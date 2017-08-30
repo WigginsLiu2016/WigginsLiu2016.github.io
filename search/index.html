@@ -87,7 +87,7 @@
   
     <style>
       body {
-        background-color: #eeeeee;
+        background-color: #eeeee;
       }
     </style>
   
@@ -140,6 +140,10 @@
         </div>
       </div>
       <div class="flex-spacer"></div>
+      
+        <div class="button">
+          <button class="mdui-btn mdui-ripple mdui-text-color-white-icon" id="drawer-button"><i class="mdui-icon material-icons">&#xe5c5;</i></button>
+        </div>
       
     </div>
   </div>
@@ -228,6 +232,25 @@
       </div>
     
   </div>
+  
+    <div class="pages">
+      <div class="mdui-list" mdui-collapse="{accordion: true}" mdui-collapse>
+        
+          
+            <a href="http://eyhn.in/Azusa/example/" target="_blank">
+              <li class="mdui-list-item mdui-ripple">
+                
+                
+                  <i class="mdui-list-item-icon mdui-icon material-icons">&#xe0ba;</i>
+                
+                
+                <div class="mdui-list-item-content">炫酷的播放器</div>
+              </li>
+            </a>
+          
+        
+      </div>
+    </div>
   
 </div>
 
@@ -342,6 +365,12 @@
   })();
 
   
+    /* drawer */
+    document.querySelector('#drawer-button').addEventListener('click', function (e) {
+        this.classList.toggle('pages');
+        document.querySelector('#drawer').classList.toggle('pages');
+    })
+  
 </script>
 
 
@@ -414,6 +443,7 @@
     </style>
     <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json")</script>
   
+
 </body>
 
 </html>
