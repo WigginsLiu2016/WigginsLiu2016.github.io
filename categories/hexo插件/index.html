@@ -18,7 +18,7 @@
         https://github.com/Halyul/hexo-theme-mdui
         Version: 1.4.8 -->
   <meta charset="UTF-8">
-  <title>Archives - WigginsLiu</title>
+  <title>Category: hexo插件 - WigginsLiu</title>
 
   <!-- Favicons -->
   <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
@@ -55,7 +55,7 @@
   <!-- The Open Graph protocol -->
   <meta property="og:url" content="http://wiggin.win">
   <meta property="og:type" content="blog">
-  <meta property="og:title" content="Archives - WigginsLiu | WigginsLiu">
+  <meta property="og:title" content="Category: hexo插件 - WigginsLiu | WigginsLiu">
   <meta property="og:image" content="/img/favicon.png" />
   
 
@@ -105,7 +105,9 @@
   
     mdui-appbar-with-toolbar
   
-  " >
+  
+    side-content style-fix
+  " onresize="styleChanging()">
 
 
   
@@ -116,25 +118,34 @@
 
   
 
-      <div class="mdui-appbar mdui-appbar-fixed animate-appbar mdui-shadow-0" id="blog-appbar">
-        <div class="mdui-toolbar mdui-color-theme mdui-shadow-2">
-          <button class="mdui-btn mdui-ripple mdui-btn-icon drawer-button" mdui-drawer="{target: '#drawer'}">
-            <i class="mdui-icon">
-              <span></span>
-            </i>
-          </button>
-          
-            <a href="/" class="mdui-typo-headline mdui-hidden-sm-down">
-              好久不见
-            </a>
-            <span class="appbar-border-line mdui-hidden-sm-down"></span>
-          
-          <span class="mdui-typo-title">WigginsLiu</span>
-          <div class="mdui-toolbar-spacer"></div>
-          
-            <button class="mdui-btn mdui-btn-dense mdui-ripple mdui-hidden-md-up" mdui-dialog="{target: '#aboutmeDialog'}">About</button>
-          
-          
+    <div class="mdui-appbar animate-appbar mdui-shadow-0 mdui-appbar-fixed" id="blog-appbar">
+      <div class="mdui-toolbar mdui-color-theme mdui-shadow-2">
+        <button class="mdui-btn mdui-ripple mdui-btn-icon drawer-button" mdui-drawer="{target: '#drawer'}">
+          <i class="mdui-icon">
+            <span></span>
+          </i>
+        </button>
+        
+          <a href="/" class="mdui-typo-headline">
+            好久不见
+          </a>
+          <span class="appbar-border-line mdui-hidden-xs"></span>
+        
+        
+          <span class="mdui-typo-title mdui-hidden-xs"
+            
+              onclick="smoothScroll.animateScroll( 0 );"
+            
+          >
+            hexo插件
+          </span>
+        
+        
+        
+          <div class="flex-spacer"></div>
+        
+        
+        
   <button class="mdui-btn mdui-ripple mdui-btn-icon" mdui-menu="{target: '#menu-index-more'}" id="index-more">
     <i class="mdui-icon material-icons">&#xe417;</i>
   </button>
@@ -152,9 +163,11 @@
   </ul>
 
 
-        </div>
       </div>
+    </div>
+  
 
+  <div id="search-cover" searchResult onclick="closeSearch()"></div>
 
 
 
@@ -163,6 +176,8 @@
 
   
   <div class="mdui-drawer mdui-drawer-full-height mdui-drawer-close
+  
+    drawer-fix
   " id="drawer" style="z-index: 2001;">
   <div class="userview" style="background-image: url(/img/bg.png)">
   <div class="overlay">
@@ -201,16 +216,84 @@
       </div>
     
     
-      <div class="mdui-list no-padding-top">
-        <li class="mdui-list-item mdui-ripple mdui-list-item-active">
-          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent">&#xe149;</i>
-          <div class="mdui-list-item-content mdui-text-color-theme-accent">
-            Archives
-            <span class="badge new mdui-color-theme-accent" data-badge-caption="">3</span>
-          </div>
-        </li>
+      <div class="mdui-list no-padding">
+        <a href="/archives">
+          <li class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">&#xe149;</i>
+            <div class="mdui-list-item-content">
+              Archives
+              <span class="badge new mdui-color-theme-accent" data-badge-caption="">3</span>
+            </div>
+          </li>
+        </a>
       </div>
     
+    
+      <div class="mdui-list no-padding-top" mdui-collapse="{accordion: true}" mdui-collapse>
+        
+          <div class="mdui-collapse-item mdui-collapse-item-open">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+              <i class="mdui-list-item-icon mdui-icon material-icons">&#xe86e;</i>
+              <div class="mdui-list-item-content">Categories</div>
+              <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+              
+                <a href="/categories/hexo插件/" class="mdui-list-item mdui-ripple" style="display: flex">
+                  hexo插件
+                  <div style="flex-grow: 1;"></div>
+                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+                </a>
+              
+                <a href="/categories/Python/" class="mdui-list-item mdui-ripple" style="display: flex">
+                  Python
+                  <div style="flex-grow: 1;"></div>
+                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+                </a>
+              
+            </div>
+          </div>
+        
+        
+          <div class="mdui-collapse-item ">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+              <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
+              <div class="mdui-list-item-content">Tags</div>
+              <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+              
+                <a href="/tags/hexo/" class="mdui-list-item mdui-ripple" style="display: flex">
+                  hexo
+                  <div style="flex-grow: 1;"></div>
+                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+                </a>
+              
+                <a href="/tags/python/" class="mdui-list-item mdui-ripple" style="display: flex">
+                  python
+                  <div style="flex-grow: 1;"></div>
+                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+                </a>
+              
+            </div>
+          </div>
+        
+        <div class="mdui-collapse-item ">
+          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
+            <div class="mdui-list-item-content">Years</div>
+            <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
+          </div>
+          <div class="mdui-collapse-item-body mdui-list">
+            
+            
+              <a href="/archives/2017/" class="mdui-list-item mdui-ripple">
+                2017
+              </a>
+            
+          </div>
+        </div>
+      </div>
     
   </div>
   
@@ -266,153 +349,152 @@
 
 
 
+  
 
-<main>
-  
-  
-<style id="archives_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("archives_css","/css/src/shared/archives.min.css?P0dAOiv90Y3EOEbIb09QUw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-<div id="archives" class="animate-post">
-  <div class="header">
+  <style id="side_content_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("side_content_css","/css/src/now/side_content.min.css?6QUsjVbcFbaNw1GxvnmHrA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+<div id="side-content" class="mdui-color-green animate-drawer">
+  <div class="mdui-grid-tile" style="overflow: visible;">
     <div class="bg">
-      <img class="mdui-img-fluid mdui-img-rounded" src="/img/bg.png"/>
+      <img src="/img/random/picHD_8.png" />
     </div>
-    <div class="content" style="
-      background-color:
-      
-        #eeeee
-      
-    ">
-      <img class="mdui-img-circle avatar" src="/img/favicon.png"/>
-      <div class="info">
-        <div class="name">
-          WigginsLiu
-        </div>
-        <div class="slogan">
-          I&#39;m your slogan!
-        </div>
+    <div class="mdui-grid-tile-actions mdui-grid-tile-actions-top mdui-grid-tile-actions-gradient">
+      <div class="flex-spacer"></div>
+      <div class="mdui-grid-tile-buttons">
+        
+  <button class="mdui-btn mdui-ripple mdui-btn-icon mdui-float-right" mdui-menu="{target: '#menu-page-share'}"><i class="mdui-icon material-icons">&#xe80d;</i></button>
+
+  <ul class="mdui-menu" id="menu-page-share">
+
+    
+
+    
+
+    
+
+    
+
+    
+      <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=hexo插件&title=hexo插件&summary=&pics=http://wiggin.win/img/favicon.png&url=http://wiggin.win//categories/hexo插件/index.html" target="_blank" class="mdui-ripple">
+              Share to QQ
+          </a>
+      </li>
+    
+
+    
+
+    
+
+    
+
+  </ul>
+
+
       </div>
-      <div class="flex-spacer mdui-hidden-sm-down"></div>
-      
-        <button class="mdui-btn mdui-ripple mdui-text-color-white-icon mdui-hidden-sm-down" mdui-dialog="{target: '#aboutmeDialog'}">About</button>
-      
-      
     </div>
   </div>
-  <div class="items mdui-container-fluid">
-    <div class="title mdui-text-color-theme-secondary">
-      Categories
+  <div class="content">
+    <img class="mdui-img-circle avatar" src="/img/favicon.png"/>
+    <div class="author mdui-text-center">
+      WigginsLiu
     </div>
-    <div class="container mdui-row">
-      
-        
-        <div class="mdui-col-xs-6 mdui-col-md-3 item">
-          <a href="/categories/hexo插件/" target="_self" class="no-text-decoration">
-            <div class="mdui-card card-bottom-fix mdui-color-grey">
-              <div class="mdui-card-media" style="background-image: url(/img/random/picHD_18.png)">
-              </div>
-              <div class="content">
-                <img class="mdui-img-circle avatar" src="/img/favicon.png" />
-                <div class="category">hexo插件</div>
-                <div class="length">
-                  
-                    1 Post
-                  
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-    
-        
-        <div class="mdui-col-xs-6 mdui-col-md-3 item">
-          <a href="/categories/Python/" target="_self" class="no-text-decoration">
-            <div class="mdui-card card-bottom-fix mdui-color-teal">
-              <div class="mdui-card-media" style="background-image: url(/img/random/picHD_40.png)">
-              </div>
-              <div class="content">
-                <img class="mdui-img-circle avatar" src="/img/favicon.png" />
-                <div class="category">Python</div>
-                <div class="length">
-                  
-                    1 Post
-                  
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-    
+    <div class="name">
+      hexo插件
     </div>
-  </div>
-  <div class="items mdui-container-fluid">
-    <div class="title mdui-text-color-theme-secondary">
-      Tags
-    </div>
-    <div class="container mdui-row">
+    <div class="length">
       
-        
-        <div class="mdui-col-xs-6 mdui-col-md-3 item">
-          <a href="/tags/hexo/" target="_self" class="no-text-decoration">
-            <div class="mdui-card card-bottom-fix mdui-color-purple">
-              <div class="mdui-card-media" style="background-image: url(/img/random/picHD_34.png)">
-              </div>
-              <div class="content">
-                <img class="mdui-img-circle avatar" src="/img/favicon.png" />
-                <div class="category">hexo</div>
-                <div class="length">
-                  
-                    1 Post
-                  
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      
-        
-        <div class="mdui-col-xs-6 mdui-col-md-3 item">
-          <a href="/tags/python/" target="_self" class="no-text-decoration">
-            <div class="mdui-card card-bottom-fix mdui-color-blue-grey">
-              <div class="mdui-card-media" style="background-image: url(/img/random/picHD_43.png)">
-              </div>
-              <div class="content">
-                <img class="mdui-img-circle avatar" src="/img/favicon.png" />
-                <div class="category">python</div>
-                <div class="length">
-                  
-                    1 Post
-                  
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      
-    </div>
-  </div>
-  <div class="items mdui-container-fluid">
-    <div class="title mdui-text-color-theme-secondary">
-      Years
-    </div>
-    <div class="container mdui-row">
-      
-        
-        <div class="mdui-col-xs-6 mdui-col-md-3 item">
-          <a href="/archives/2017/" target="_self" class="no-text-decoration">
-            <div class="mdui-card card-bottom-fix mdui-color-green">
-              <div class="mdui-card-media" style="background-image: url(/img/random/picHD_42.png)">
-              </div>
-              <div class="content no-length">
-                <img class="mdui-img-circle avatar" src="/img/favicon.png" />
-                <div class="category">2017</div>
-              </div>
-            </div>
-          </a>
-        </div>
-      
+      1Post
     </div>
   </div>
 </div>
+<div id="contentLocation"></div>
+
+
+
+<main>
+  <div class="posts-container column-3">
+
+</div>
+<div id="content-list" class="animate-post">
+  
+    <div class="content-item">
+      
+  
+<div class="mdui-card card-bottom-fix mdui-hoverable">
+  <div class="mdui-card-header posts-header">
+    <img class="mdui-card-header-avatar" src="/img/favicon.png"/>
+    <div class="content mdui-valign">
+      <div class="mdui-typo-body-1-opacity mdui-typo">
+        <span>WigginsLiu</span>
+        <span> · </span>
+        <span>Aug 30, 2017</span>
+      </div>
+    </div>
+  <div class="flex-spacer"></div>
+    <a href="/2017/08/30/hexo插件：Live2D 萌萌二次元/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
+  </div>
+  <div class="mdui-card-content posts-content">
+    <div class="posts-excerpt">
+      <a href="/2017/08/30/hexo插件：Live2D 萌萌二次元/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
+        
+        hexo插件：Live2D 萌萌二次元
+      </a>
+      <div class="posts-strip mdui-typo-body-1">
+        
+      </div>
+    </div>
+    <div class="flex-spacer"></div>
+    
+      <div class="posts-thumbnail" style="background-image: url(/img/random/picHD_10.png)"></div>
+    
+  </div>
+  
+    <div class="mdui-divider" style="margin: 0 16px;"></div>
+    <div class="posts-bottom">
+      
+        <div class="mdui-chip">
+          <span class="mdui-chip-icon"><i class="mdui-icon
+          
+            mdui-text-color-black-icon
+          
+           material-icons mdui-text-center">&#xe149;</i></span>
+        </div>
+        <div class="content mdui-typo">
+          
+            <a href="/categories/hexo插件/">
+              <span>hexo插件</span>
+            </a>
+          
+        </div>
+      
+      
+        <div class="mdui-chip">
+          <span class="mdui-chip-icon"><i class="mdui-icon
+           
+             mdui-text-color-black-icon
+           
+           fa fa-tags mdui-text-center"></i></span>
+        </div>
+        <div class="content mdui-typo">
+          
+            <a href="/tags/hexo/">
+              <span>hexo</span>
+            </a>
+          
+        </div>
+      
+    </div>
+  
+</div>
+
+
+
+    </div>
+  
+</div>
+
+
 
 
 <button id="toTop" class="mdui-fab mdui-color-theme-accent mdui-ripple mdui-fab-fixed mdui-fab-hide" style="z-index: 9;" onclick="smoothScroll.animateScroll( 0 );">
@@ -448,92 +530,6 @@
       <button class="mdui-btn mdui-ripple mdui-ripple" mdui-dialog-close>cancel</button>
     </div>
   </div>
-
-
-  <style id="aboutme_dialog_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("aboutme_dialog_css","/css/src/shared/aboutme_dialog.min.css?USfsLmuhVjtyhVNT7iwjpA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-<div class="mdui-appbar mdui-appbar-fixed" id="aboutmeAppbar">
-  <div class="mdui-toolbar mdui-color-theme">
-    <img class="mdui-img-circle avatar" src="/img/favicon.png"/>
-    <div class="title">
-      WigginsLiu
-    </div>
-    <div class="mdui-toolbar-spacer"></div>
-    <button class="mdui-btn mdui-btn-icon" onclick="closeAboutmeDialog()">
-      <i class="mdui-icon material-icons">&#xe5cd;</i>
-    </button>
-  </div>
-</div>
-<div class="mdui-dialog" id="aboutmeDialog">
-  <div style="height: 224px;" onclick="closeAboutmeDialog()"></div>
-  <div class="mdui-card mdui-color-theme card1 card-bottom-fix">
-    <img class="mdui-img-circle avatar mdui-center" src="/img/favicon.png"/>
-    <div class="content">
-      <div class="name mdui-text-center">
-        WigginsLiu
-      </div>
-      <div class="others mdui-text-center">
-        
-      </div>
-    </div>
-  </div>
-  <div id="cardLocation"></div>
-  
-</div>
-<script type="text/javascript">
-  function closeAboutmeDialog() {
-    var aboutmeDialog = new mdui.Dialog('#aboutmeDialog');
-    aboutmeDialog.close();
-  };
-  /* aboutme dialog */
-  (function() {
-    var collapseItems = document.querySelectorAll('div.mdui-collapse-item')
-
-    for (i = 0; i < collapseItems.length; i++) {
-      collapseItems[i].addEventListener("click", toggleText);
-    }
-
-    function toggleText() {
-      this.addEventListener('open.mdui.collapse', function() {
-          this.classList.add('hide-more');
-          this.classList.remove('hide-less');
-      });
-      this.addEventListener('close.mdui.collapse', function() {
-        this.classList.remove('hide-more');
-        this.classList.add('hide-less');
-      });
-    }
-
-    var cardFlag = false;
-    var aboutmeDialog = document.querySelector('div#aboutmeDialog')
-    var aboutmeAppbar = document.querySelector('div#aboutmeAppbar')
-    aboutmeDialog.addEventListener('scroll', function() {
-      var cardLocation = document.querySelector('div#cardLocation').getBoundingClientRect().top
-      if (!cardFlag && cardLocation < 0) {
-        aboutmeAppbar.classList.add('style-fix');
-        cardFlag = true;
-      } else if (cardFlag && cardLocation >= 0) {
-        aboutmeAppbar.classList.remove('style-fix');
-        cardFlag = false;
-      };
-    });
-
-    aboutmeDialog.addEventListener('open.mdui.dialog', function() {
-      var cardLocation = document.querySelector('div#cardLocation').getBoundingClientRect().top
-      if (cardLocation < 0) {
-        aboutmeAppbar.classList.add('style-fix');
-        cardFlag = true;
-      };
-    });
-    aboutmeDialog.addEventListener('close.mdui.dialog', function() {
-      var cardLocation = document.querySelector('div#cardLocation').getBoundingClientRect().top
-      if (cardLocation < 0) {
-        aboutmeAppbar.classList.remove('style-fix');
-        cardFlag = false;
-      };
-    });
-  })();
-</script>
-
 
 
 
@@ -577,17 +573,45 @@
 
 
 
-  <script>
-    window.addEventListener("scroll", function(){
-       document.querySelector('#archives .bg .mdui-img-fluid.mdui-img-rounded')
-        .style.transform = 'translateY(' + document.body.scrollTop * 0.4 + 'px)';
-    })
-  </script>
 
 
 
 
 
+
+  <script type="text/ls-javascript" id="style-changing-script">
+  var content_flag = false;
+  var appbar = document.querySelector('div#blog-appbar')
+  var body = document.querySelector('body')
+
+  window.addEventListener('scroll', function() {
+    var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+    var divTop = document.querySelector('div#contentLocation').offsetTop
+    var contentLocation = divTop - scrollTop - 56;
+
+    if (!content_flag && contentLocation < 0 && window.innerWidth < 860) {
+      appbar.classList.add('style-fix');
+      body.classList.remove('style-fix');
+      content_flag = true;
+    } else if (content_flag && contentLocation >= 0 && window.innerWidth < 860) {
+      appbar.classList.remove('style-fix');
+      body.classList.add('style-fix');
+      content_flag = false;
+    };
+  })
+
+  function styleChanging() {
+    var hide = new mdui.Headroom('div#blog-appbar');
+    var windowWidth = window.innerWidth,
+      toLeftWidth = 860;
+    if (windowWidth < toLeftWidth) {
+      hide.enable();
+    } else {
+      hide.disable();
+    }
+  };
+  styleChanging();
+</script>
 
 
 
