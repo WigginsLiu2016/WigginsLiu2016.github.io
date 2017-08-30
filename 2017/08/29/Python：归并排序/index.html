@@ -18,7 +18,7 @@
         https://github.com/Halyul/hexo-theme-mdui
         Version: 1.4.8 -->
   <meta charset="UTF-8">
-  <title>Hello World - WigginsLiu</title>
+  <title>Python：归并排序 - WigginsLiu</title>
 
   <!-- Favicons -->
   <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
@@ -40,7 +40,9 @@
 
   <meta name="author" content="WigginsLiu">
   
-  <meta name="keywords" content="blog, hexo, mdui">
+      <meta name="description" itemprop="description" content="归并排序：空间复杂度为O（log n），时间复杂度为O（nlogn），算法稳定，不具有适应性">
+  
+  <meta name="keywords" content="blog, hexo, mdui,python">
 
   <!--iOS -->
   <meta name="apple-mobile-web-app-title" content="WigginsLiu">
@@ -55,11 +57,13 @@
   <!-- The Open Graph protocol -->
   <meta property="og:url" content="http://wiggin.win">
   <meta property="og:type" content="blog">
-  <meta property="og:title" content="Hello World - WigginsLiu | WigginsLiu">
+  <meta property="og:title" content="Python：归并排序 - WigginsLiu | WigginsLiu">
   <meta property="og:image" content="/img/favicon.png" />
   
-
+        <meta property="og:description" content="归并排序：空间复杂度为O（log n），时间复杂度为O（nlogn），算法稳定，不具有适应性">
     
+
+    <meta property="og:article:tag" content="python"> 
 
   <!-- Cache -->
   <meta http-equiv="Cache-Control" content="max-age=7200" />
@@ -370,11 +374,11 @@
     
   ">
     <div class="post-header-container">
-      <div class="post-title mdui-text-truncate">Hello World</div>
+      <div class="post-title mdui-text-truncate">Python：归并排序</div>
       <div class="post-actions mdui-valign">
         <div>
           <span>Posted: </span>
-          <span style="float: right">Aug 28, 2017</span>
+          <span style="float: right">Aug 29, 2017</span>
           
           <br>
             <span>Last Modified: </span>
@@ -398,7 +402,7 @@
 
     
       <li class="mdui-menu-item">
-          <a href="http://connect.qq.com/widget/shareqq/index.html?site=WigginsLiu&title=Hello World&summary=&pics=http://wiggin.win/img/favicon.png&url=http://wiggin.win/2017/08/28/hello-world/index.html" target="_blank" class="mdui-ripple">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=WigginsLiu&title=Python：归并排序&summary=&pics=http://wiggin.win/img/favicon.png&url=http://wiggin.win/2017/08/29/Python：归并排序/index.html" target="_blank" class="mdui-ripple">
               Share to QQ
           </a>
       </li>
@@ -430,23 +434,118 @@
         
         
           <div class="mdui-card-media">
-            <img src="/img/random/picHD_1.png"/>
+            <img src="/img/random/picHD_36.png"/>
           </div>
         
         <div class="post-content mdui-typo no-margin" id="post-content">
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-lang="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
+          <h1 id="Python-归并排序"><a href="#Python-归并排序" class="headerlink" title="Python: 归并排序"></a>Python: 归并排序</h1><blockquote>
+<p>归并排序算法：空间复杂度为O（n），时间复杂度为O（nlogn），算法稳定</p>
+</blockquote>
+<h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><ul>
+<li>将序列分为左右两组</li>
+<li>重复第一步，直至左右两组里面的元素数量为1</li>
+<li>从小到大合并左右两组</li>
+<li>完成合并</li>
+</ul>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><pre class="line-numbers language-bash" data-lang="bash"><code class="language-bash">def merge_sort<span class="token punctuation">(</span>lst<span class="token punctuation">)</span>:  
+    <span class="token keyword">if</span> len<span class="token punctuation">(</span>lst<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> 1:  
+        <span class="token keyword">return</span> lst  
+    mid <span class="token operator">=</span> len<span class="token punctuation">(</span>lst<span class="token punctuation">)</span> // 2  
+    print <span class="token string">'left: '</span>, lst<span class="token punctuation">[</span>: mid<span class="token punctuation">]</span>  
+    print <span class="token string">'right: '</span>, lst<span class="token punctuation">[</span>mid:<span class="token punctuation">]</span>  
+    print <span class="token string">''</span>  
+    left <span class="token operator">=</span> merge_sort<span class="token punctuation">(</span>lst<span class="token punctuation">[</span>: mid<span class="token punctuation">]</span><span class="token punctuation">)</span>  
+    right <span class="token operator">=</span> merge_sort<span class="token punctuation">(</span>lst<span class="token punctuation">[</span>mid:<span class="token punctuation">]</span><span class="token punctuation">)</span>  
+    <span class="token keyword">return</span> merge<span class="token punctuation">(</span>left, right<span class="token punctuation">)</span>  
+
+
+def merge<span class="token punctuation">(</span>left, right<span class="token punctuation">)</span>:  
+    print <span class="token string">'left: '</span>, left  
+    print <span class="token string">'right: '</span>, right  
+    res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>  
+    i, j <span class="token operator">=</span> 0, 0  
+    <span class="token keyword">while</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>left<span class="token punctuation">)</span> and j <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>right<span class="token punctuation">)</span>:  
+        <span class="token keyword">if</span> left<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> right<span class="token punctuation">[</span>j<span class="token punctuation">]</span>:  
+            res.append<span class="token punctuation">(</span>left<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>  
+            i +<span class="token operator">=</span> 1  
+        else:  
+            res.append<span class="token punctuation">(</span>right<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>  
+            j +<span class="token operator">=</span> 1  
+    res +<span class="token operator">=</span> left<span class="token punctuation">[</span>i:<span class="token punctuation">]</span>  
+    res +<span class="token operator">=</span> right<span class="token punctuation">[</span>j:<span class="token punctuation">]</span>  
+    print <span class="token string">'res: '</span>, res  
+    print <span class="token string">'***'</span>  
+    <span class="token keyword">return</span> res
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><pre class="line-numbers language-bash" data-lang="bash"><code class="language-bash">lst<span class="token operator">=</span><span class="token punctuation">[</span>7,8,4,1,76,45,2,12,14,15<span class="token punctuation">]</span>
+merge_sort<span class="token punctuation">(</span>lst<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="步骤过程"><a href="#步骤过程" class="headerlink" title="步骤过程"></a>步骤过程</h3><pre class="line-numbers language-bash" data-lang="bash"><code class="language-bash">left:  <span class="token punctuation">[</span>7, 8, 4, 1, 76<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>45, 2, 12, 14, 15<span class="token punctuation">]</span>
+
+left:  <span class="token punctuation">[</span>7, 8<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>4, 1, 76<span class="token punctuation">]</span>
+
+left:  <span class="token punctuation">[</span>7<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>8<span class="token punctuation">]</span>
+
+left:  <span class="token punctuation">[</span>7<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>8<span class="token punctuation">]</span>
+res:  <span class="token punctuation">[</span>7, 8<span class="token punctuation">]</span>
+***
+left:  <span class="token punctuation">[</span>4<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>1, 76<span class="token punctuation">]</span>
+
+left:  <span class="token punctuation">[</span>1<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>76<span class="token punctuation">]</span>
+
+left:  <span class="token punctuation">[</span>1<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>76<span class="token punctuation">]</span>
+res:  <span class="token punctuation">[</span>1, 76<span class="token punctuation">]</span>
+***
+left:  <span class="token punctuation">[</span>4<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>1, 76<span class="token punctuation">]</span>
+res:  <span class="token punctuation">[</span>1, 4, 76<span class="token punctuation">]</span>
+***
+left:  <span class="token punctuation">[</span>7, 8<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>1, 4, 76<span class="token punctuation">]</span>
+res:  <span class="token punctuation">[</span>1, 4, 7, 8, 76<span class="token punctuation">]</span>
+***
+left:  <span class="token punctuation">[</span>45, 2<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>12, 14, 15<span class="token punctuation">]</span>
+
+left:  <span class="token punctuation">[</span>45<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>2<span class="token punctuation">]</span>
+
+left:  <span class="token punctuation">[</span>45<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>2<span class="token punctuation">]</span>
+res:  <span class="token punctuation">[</span>2, 45<span class="token punctuation">]</span>
+***
+left:  <span class="token punctuation">[</span>12<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>14, 15<span class="token punctuation">]</span>
+
+left:  <span class="token punctuation">[</span>14<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>15<span class="token punctuation">]</span>
+
+left:  <span class="token punctuation">[</span>14<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>15<span class="token punctuation">]</span>
+res:  <span class="token punctuation">[</span>14, 15<span class="token punctuation">]</span>
+***
+left:  <span class="token punctuation">[</span>12<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>14, 15<span class="token punctuation">]</span>
+res:  <span class="token punctuation">[</span>12, 14, 15<span class="token punctuation">]</span>
+***
+left:  <span class="token punctuation">[</span>2, 45<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>12, 14, 15<span class="token punctuation">]</span>
+res:  <span class="token punctuation">[</span>2, 12, 14, 15, 45<span class="token punctuation">]</span>
+***
+left:  <span class="token punctuation">[</span>1, 4, 7, 8, 76<span class="token punctuation">]</span>
+right:  <span class="token punctuation">[</span>2, 12, 14, 15, 45<span class="token punctuation">]</span>
+res:  <span class="token punctuation">[</span>1, 2, 4, 7, 8, 12, 14, 15, 45, 76<span class="token punctuation">]</span>
+***
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h3><pre class="line-numbers language-bash" data-lang="bash"><code class="language-bash"><span class="token punctuation">[</span>1, 2, 4, 7, 8, 12, 14, 15, 45, 76<span class="token punctuation">]</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-lang="bash"><code class="language-bash">$ hexo server
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-lang="bash"><code class="language-bash">$ hexo generate
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-lang="bash"><code class="language-bash">$ hexo deploy
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
         </div>
 
@@ -472,6 +571,28 @@
             
             <div class="flex-spacer"></div>
             
+              <div class="mdui-chip">
+                <span class="mdui-chip-icon"><i class="mdui-icon mdui-text-color-black-icon material-icons">&#xe149;</i></span>
+              </div>
+              <div class="content mdui-typo">
+                
+                  <a href="/categories/Python/">
+                    <span>Python</span>
+                  </a>
+                
+              </div>
+            
+            
+              <div class="mdui-chip">
+                <span class="mdui-chip-icon"><i class="mdui-icon mdui-text-color-black-icon fa fa-tags"></i></span>
+              </div>
+              <div class="content mdui-typo">
+                
+                  <a href="/tags/python/">
+                    <span>python</span>
+                  </a>
+                
+              </div>
             
           </div>
         
@@ -485,7 +606,7 @@
           mdui-color-theme
         
         ">
-          <ul class="mdui-list post-toc"><a class="mdui-list-item mdui-ripple post-toc-link" href="#Quick-Start"><span class="post-toc-number">1.<span class="post-toc-text">Quick Start</span></span></a><ul class="mdui-list-dense post-toc-child"><a class="mdui-list-item mdui-ripple post-toc-link" href="#Create-a-new-post"><span class="post-toc-number">1.1.<span class="post-toc-text">Create a new post</span></span></a></a><a class="mdui-list-item mdui-ripple post-toc-link" href="#Run-server"><span class="post-toc-number">1.2.<span class="post-toc-text">Run server</span></span></a></a><a class="mdui-list-item mdui-ripple post-toc-link" href="#Generate-static-files"><span class="post-toc-number">1.3.<span class="post-toc-text">Generate static files</span></span></a></a><a class="mdui-list-item mdui-ripple post-toc-link" href="#Deploy-to-remote-sites"><span class="post-toc-number">1.4.<span class="post-toc-text">Deploy to remote sites</span></span></a></a></ul></a></ul>
+          <ul class="mdui-list post-toc"><a class="mdui-list-item mdui-ripple post-toc-link" href="#Python-归并排序"><span class="post-toc-number">1.<span class="post-toc-text">Python: 归并排序</span></span></a><ul class="mdui-list-dense post-toc-child"><a class="mdui-list-item mdui-ripple post-toc-link" href="#基本思想"><span class="post-toc-number">1.1.<span class="post-toc-text">基本思想</span></span></a></a><a class="mdui-list-item mdui-ripple post-toc-link" href="#算法"><span class="post-toc-number">1.2.<span class="post-toc-text">算法</span></span></a></a><a class="mdui-list-item mdui-ripple post-toc-link" href="#测试"><span class="post-toc-number">1.3.<span class="post-toc-text">测试</span></span></a><ul class="mdui-list-dense post-toc-child"><a class="mdui-list-item mdui-ripple post-toc-link" href="#步骤过程"><span class="post-toc-number">1.3.1.<span class="post-toc-text">步骤过程</span></span></a></a><a class="mdui-list-item mdui-ripple post-toc-link" href="#最终结果"><span class="post-toc-number">1.3.2.<span class="post-toc-text">最终结果</span></span></a></a></ul></a></ul></a></ul>
         </div>
       
     </div>
@@ -493,20 +614,30 @@
   <div class="post-pagination mdui-color-theme">
   
     <div class="prev mdui-ripple mdui-color-theme mdui-valign">
-      <a href="/2017/08/29/Python：快速排序/" class="content no-text-decoration mdui-text-left">
+      <a href="/2017/08/30/hexo插件：Live2D 萌萌二次元/" class="content no-text-decoration mdui-text-left">
         <div>
           <i class="mdui-icon material-icons mdui-text-center">&#xe5cb;</i>
           <span class="mdui-typo-body-2-opacity mdui-text-center">Newer Post</span>
         </div>
         <div class="mdui-typo-title mdui-text-truncate">
-          Python：快速排序
+          hexo插件：Live2D 萌萌二次元
         </div>
       </a>
     </div>
   
 
   
-      <div class="flex-spacer mdui-hidden-xs"></div>
+    <div class="next mdui-ripple mdui-color-theme mdui-valign">
+      <a href="/2017/08/29/Python：快速排序/" class="content no-text-decoration mdui-text-right">
+        <div>
+          <span class="mdui-typo-body-2-opacity mdui-text-center">Older Post</span>
+          <i class="mdui-icon material-icons mdui-text-center">&#xe5cc;</i>
+        </div>
+        <div class="mdui-typo-title mdui-text-truncate">
+          Python：快速排序
+        </div>
+      </a>
+    </div>
     
 </div>
 
@@ -515,7 +646,7 @@
   <i class="mdui-icon material-icons">&#xe242;</i>
 </button>
 <ul class="mdui-menu mdui-typo no-margin-bottom auto-width" id="menu-toc" style="padding: 8px;max-height: 80%">
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-归并排序"><span class="toc-text">Python: 归并排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本思想"><span class="toc-text">基本思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#步骤过程"><span class="toc-text">步骤过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最终结果"><span class="toc-text">最终结果</span></a></li></ol></li></ol></li></ol>
 </ul>
 
 
@@ -701,7 +832,7 @@
   <!-- content warning -->
 <script type="text/ls-javascript" id="content-warning-script">
   (function() {
-    var postLastModifiedDate = 1504080682248
+    var postLastModifiedDate = 1504098932352
     var today = (new Date()).getTime()
     var difference = Math.floor((today - postLastModifiedDate)/(24*60*60*1000))
     if (difference >= 100) {
